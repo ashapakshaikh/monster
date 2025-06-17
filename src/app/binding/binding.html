@@ -1,0 +1,99 @@
+<div class="container">
+    <h1 class="text-center">bindings</h1>
+    <div class="interpolation container">
+        <h2>-: interpolation :-</h2>
+        <h3>UserName is : {{userName}}</h3>
+        <h3>
+            {{array[0]}}         
+        </h3>
+        <hr>
+    </div>
+    <div class="eventBinding container">
+        <h1> - : Event Binding : - </h1>
+        <h3> {{firstName}}</h3>
+        <button (click)="changeName()">change Name</button>
+        <br>
+        <h3>Addition is: {{sum}}</h3>
+        <button (click)="add(7,8)">Addition</button>
+        <br><br>
+        <h1>{{initNumber}}</h1>
+        <button [class]="decr" (click)="Submit(-1)">Decrement</button>
+        <button [class]="reset" (click)="Submit(0)">Reset</button>
+        <button [class]="incr" (click)="Submit(1)">Increment</button>
+        <hr>
+    </div>
+    <div class="property">
+        <h3>: Property :</h3>
+        <button [class]="decr"  (click)="Submit(-1)">Decrement</button>
+        <button [class]="reset"  (click)="Submit(0)">Reset</button>
+        <button [class]="incr"  (click)="Submit(1)">Increment</button>
+        <hr>
+    </div>
+    <div>
+        <h3>Two way binding</h3>
+        <div class="text-center">
+            <h2>{{twowayName}}</h2>
+            <input [(ngModel)]="twowayName" type="text">
+            <br>
+            <button class="btn btn-danger" (click)="btnSubmit()">Submit</button>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h3 class="text-center"></h3>
+        <div class="container-fluid">
+            <form action="">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="input-UserName" id="lblUserName">User Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="txtUserName" [ngModelOptions]="{standalone: true}" placeholder="Enter the user name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input-Email" id="lblUserName">Email</label>
+                        <input type="email" [(ngModel)]="txtEmail" [ngModelOptions]="{standalone:true}" class="form-control" id="inputEmail"  placeholder="Enter the Email ID">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="input-MobileNum" id="lblMobileNum">Mobile Number</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone:true}" id="inputMobileNum" [(ngModel)]="txtMobileNum"  placeholder="Enter the Mobile number">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="txtAddress" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                </div>
+                <div class="class col-md-6" style="margin-top: 20px;">
+                    <button class="btn btn-primary" (click)="Register()">Submit</button><br>
+                </div>
+            </form>
+        </div>      
+    </div><br>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                 <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <tr>
+                        <td><input type="text" readonly class="form-control-plaintext" id="staticUserName" value={{lblUserName}}></td>
+                        <td><input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{lblEmail}}></td>
+                        <td><input type="text" readonly class="form-control-plaintext" id="staticMobileNum" value={{lblMobileNum}}></td>
+                        <td><input type="text" readonly class="form-control-plaintext" id="staticAddress" value={{lblAddress}}></td>
+                        <td>
+                            <button class="btn btn-danger" (click)="Update()" style="margin-right: 10px;">Update</button>
+                            <button class="btn btn-secondary" (click)="Delete()">Delete</button>
+                        </td>
+                    </tr>
+                 </tbody>
+            </table>
+        </div>
+    </div>
+</div>
