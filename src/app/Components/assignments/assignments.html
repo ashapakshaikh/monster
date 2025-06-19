@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="d-grid gap-3">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <label for="product_id">Product ID: </label>
+            <input type="number" id="input-ProductID" [(ngModel)]="txtproduct_id">
+        </div>
+        <div class="col-md-4">
+            <label for="product_name">Product Name:</label>
+            <input type="text" id="input-ProductName" [(ngModel)]="txtproduct_name">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <label for="product_id">Product Quantity: </label>
+            <input type="number" step="1" min="1" id="input-ProductID" [(ngModel)]="txtproduct_quantity">
+        </div>
+        <div class="col-md-4">
+            <label for="product_name">Product Price: </label>
+            <input type="text" id="input-ProductPrice" [(ngModel)]="txtproduct_price">
+        </div>
+        
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <label for="product_id">Product Image: </label>
+            <input type="text" id="input-ProductImg" [(ngModel)]="imgproductImg_url">
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <!-- <div class="row">
+        <label for="product_img">Upload Image: </label>
+        
+    </div> -->
+    <div class="row justify-content-md-center">
+        <div class="col-md-12 text-center"> 
+            <button class="btn btn-primary" (click)="Submit()">Submit</button>
+        </div>      
+    </div>
+    </div>
+    </div>
+  <br><br>
+        <div>
+            <table class="table">
+                <thead class="table-primary">
+                <tr class="table-success">
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Product Image</th>
+                    <th>Action</th>
+                </tr> 
+                </thead>              
+                <tr *ngFor="let prod of arrObj" cellsspacing="3px">
+                    <td>{{prod.product_id}}</td>
+                    <td>{{prod.product_name}}</td>
+                    <td>{{prod.product_price | currency:'INR' }}</td>
+                    <td>{{prod.product_quantity}}</td>
+                    <td><img src={{prod.productImg_url}} width="10%"></td>
+                    <td [width]="30">
+                        <button class="btn btn-success" (click)="Edit(prod.product_id)"  style="margin-right: 5px;">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>            
+            </table>
+         <hr>
+         <h1>Default Date format: {{exmDateFormat}}</h1>
+         <h1>Default Date format: {{exmDateFormat |date:'fullDate'}}</h1>
+         <h1>Default Date format: {{exmDateFormat |date:'shortDate'}}</h1>
+         <h1>Default Date format: {{exmDateFormat |date:'dd/MMM/yyyy'}}</h1>
+         <h1>Default Date format: {{exmDateFormat |date:'longDate'}}</h1>
+         <h1>Default Date format: {{exmDateFormat |date:'mediumDate'}}</h1>
+         <h1>Default Date format: {{exmDateFormat |date:'dd-MM-yyyy'}}</h1>
+         <h1>Default Date format: {{exmDateFormat }}</h1>
+         
+
+         
+
+    </div>
+</div>

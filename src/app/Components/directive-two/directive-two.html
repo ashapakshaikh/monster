@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 class="text-center">Directives</h1>
+    <div *ngIf="isPresent">
+    <div class="loops" *ngFor="let item of arrString">
+        <h1>{{item}}</h1>
+    </div>
+    <hr>
+    </div>
+      <div *ngIf="!isPresent">
+            <table class="table table-bordered table-secondary table-striped table-hover">
+                <thead class="table-primary">
+                <tr class="table-success">
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr> 
+                </thead>              
+                <tr *ngFor="let prod of arrObj">
+                    <td>{{prod.product_id}}</td>
+                    <td>{{prod.product_name}}</td>
+                    <td>{{prod.product_price}}</td>
+                    <td>{{prod.product_quantity}}</td>
+                </tr>            
+            </table>
+         </div>
+</div>

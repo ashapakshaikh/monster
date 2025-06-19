@@ -4,6 +4,8 @@ import { Footer } from "./Components/footer/footer";
 import { RouterOutlet } from '@angular/router';
 import { Directives } from './Components/directives/directives';
 import { Binding } from "./binding/binding";
+import { DirectiveTwo } from './Components/directive-two/directive-two';
+import { Assignments } from './Components/assignments/assignments';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,9 @@ import { Binding } from "./binding/binding";
     Navbar,
     Footer,
     Directives,
-    Binding
+    Binding,
+    DirectiveTwo,
+    Assignments
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'

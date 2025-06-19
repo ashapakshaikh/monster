@@ -32,16 +32,6 @@ export class Binding {
     console.log(num1+num2);
     this.sum= num1+num2;
   }
-Register(){
-     this.lblUserName=this.txtUserName;
-     this.lblEmail=this.txtEmail;
-     this.lblMobileNum=this.txtMobileNum;
-     this.lblAddress=this.txtAddress;
-     this.txtUserName="";
-     this.txtEmail="";
-     this.txtMobileNum=0;
-     this.txtAddress="";
-  }
    decr ="btn btn-primary";
    incr ="btn btn-success";
    reset ="btn btn-danger";
@@ -49,7 +39,27 @@ Register(){
    btnSubmit(){
     console.log("Content of text box is :",this.twowayName);
    }
-
+Register(){
+      if (this.txtUserName=="") {
+        alert("Please enter the User Name...!!!");
+      }else if(this.txtEmail==""){
+        alert("Please enter the Email ID...!!!");
+      }else if(this.txtMobileNum==0 || ""){
+        alert("Please enter the Mobile Number...!!!");
+      }else if(this.txtAddress==""){
+        alert("Please enter the address...!!!");
+      }else{
+        this.lblUserName=this.txtUserName;
+        this.lblEmail=this.txtEmail;
+        this.lblMobileNum=this.txtMobileNum;
+        this.lblAddress=this.txtAddress;
+        this.txtUserName="";
+        this.txtEmail="";
+        this.txtMobileNum=0;
+        this.txtAddress="";
+      }
+     
+  }
    Update(){
     this.txtUserName=this.lblUserName;
     this.txtEmail=this.lblEmail;
@@ -62,10 +72,18 @@ Register(){
 
    }
    Delete(){
-    this.lblUserName="";
-    this.lblEmail="";
-    this.lblMobileNum=0;
-    this.lblAddress="";
+    let text = "Are you sure to delete the record?";
+      if (confirm(text) == true) 
+        {
+          this.lblUserName="";
+          this.lblEmail="";
+          this.lblMobileNum=0;
+          this.lblAddress="";
+        } 
+       else 
+       {
+          text = "You canceled!";
+       }  
    }
 
   Submit(Num:number){

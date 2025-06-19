@@ -1,0 +1,32 @@
+label{
+    margin-right: 5px;
+    font-weight: bold;
+}
+.card{
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ margin-top: 10px;
+ margin-bottom: 10px;
+ padding-bottom: 10px;
+ padding-top: 20px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+input, text{
+    border-radius: 5px;
+    outline-color: rgb(110, 202, 202);
+}
+row,col{
+    border: 1px solid black;
+}
+table{
+    border: 1px solid black;
+    border-spacing: 10px;
+    border-radius: 5px;
+}
+th,td{
+    padding-left: 10px;
+}
+tr:nth-child(even) {
+  background-color: #d3e6ed;
+}
