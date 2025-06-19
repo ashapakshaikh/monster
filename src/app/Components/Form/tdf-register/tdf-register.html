@@ -1,0 +1,41 @@
+<div class="container">
+    <form  #registerForm="ngForm" (ngSubmit)="submitform(registerForm)" class="registeration-form">
+        <div class="form-group">
+        <div class="card">
+            <div class="d-grid gap-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>User Name:</label> 
+                     <input type="text" name="UserName" ngModel id="UserName">
+                </div>                           
+                <div class="col-md-3">
+                    <label>Email:</label> 
+                    <input type="email" name="EmailID" ngModel id="EmailID">
+                </div>                                         
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Mobile Number:</label>               
+                    <input type="text" name="MobileNumber" ngModel id="MobileNumber">
+                </div>
+                <div class="col-md-3">
+                    <label>Password:</label>               
+                    <input type="password" name="Password" ngModel id="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-2"> 
+                    <button class="btn btn-danger" (click)="submitform(registerForm)">Register</button>
+                </div>
+               <div class="col-md-3">
+
+               </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </form>
+</div>

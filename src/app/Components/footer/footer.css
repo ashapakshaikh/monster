@@ -1,0 +1,31 @@
+ .footer-custom {
+      background-color: #8686ce;
+      color: #fff;
+      padding: 40px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .footer-custom a {
+      color: #050505;
+      text-decoration: none;
+    }
+    .footer-custom a:hover {
+      color: #dddbe2;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      background-color: #181823;
+      padding: 10px 0;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      position: fixed;
+       bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    p {
+      color: azure;
+    }

@@ -1,0 +1,84 @@
+<div class="body">
+    <!-- <form [formGroup]="loginData" class="login-form" action="#" method="post"  (ngSubmit)="SubmitLogin()">
+         <div class="form-group">
+        <div class="card">
+            <div class="d-grid gap-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Email ID:</label>
+                     <input type="email" formControlName="Email" ngModel id="email">
+                </div>
+                </div>  
+                <div class="row">
+                <div class="col-md-3">
+                    <label>Password:</label>
+                    <input type="password" formControlName="Password" ngModel id="Password">
+                </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" (click)="SubmitLogin()">Login</button>
+                    </div>
+                    
+                 </div>
+            </div>
+            </div>
+            </div>
+    </form> -->
+
+     <div class="login-container d-flex justify-content-center align-items-center">
+      <div class="card login-card" style="width: 100%; max-width: 400px;">
+        <div class="card-body p-5">
+          <h2 class="align-items-center">Monster</h2>
+          <p class="text-muted text-center mb-4">Please sign in to your account</p>
+          
+          <form [formGroup]="loginData" (ngSubmit)="SubmitLogin()">
+            <label for="Email">
+                <i class="bi bi-lock me-2"></i>Email
+              </label>
+            <!-- Email Field -->
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="Email"
+                placeholder="name@example.com"
+                autocomplete="email"
+              >
+              <label for="email">
+                <i class="bi bi-envelope me-2"></i>Email Address
+              </label>             
+            </div>
+            <label for="password">
+                <i class="bi bi-lock me-2"></i>Password
+              </label>
+            <!-- Password Field -->
+            <div class="form-floating mb-3 position-relative">
+              <input          
+                class="form-control"
+                type="password"
+                id="password"
+                formControlName="Password"
+                placeholder="Password"
+                autocomplete="current-password"
+              >
+            <label for="password">
+                <i class="bi bi-lock me-2"></i>Password
+            </label>
+            </div>   
+              
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100 mb-3" (click)="SubmitLogin()"> Sign In </button>      
+          </form>
+        </div>
+        
+        <div class="card-footer text-center py-3 bg-transparent border-0">
+          <small class="text-muted">
+            Don't have an account? 
+            <a href="#" class="text-decoration-none">Sign up here</a>
+          </small>
+        </div>
+      </div>
+    </div>
+</div>

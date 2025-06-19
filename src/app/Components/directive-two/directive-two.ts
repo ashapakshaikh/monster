@@ -12,8 +12,20 @@ export class DirectiveTwo {
   isPresent=true;
 constructor(){
   this.isPresent=false;
+  this.changeDate =new Date();
+ // this.changeDate.setDate(this.changeDate.getDate()+1);
 }
 
+exmDateFormat =new Date();
+changeDate =new Date();
+
+UpdateDate(){
+  this.changeDate =new Date();
+  this.changeDate.setDate(this.changeDate.getDate() + 1);
+  this.changeDate.setHours(12);
+  this.changeDate.setMinutes(12);
+
+}
   arrString:string[]=['Ajit','Sachin','Ganesh','Pratik']; 
 
   arrObj:Product[]=[

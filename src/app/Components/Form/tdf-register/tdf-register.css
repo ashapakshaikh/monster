@@ -8,6 +8,7 @@ label{
  margin-bottom: 10px;
  padding-bottom: 10px;
  padding-top: 20px;
+ padding-left: 20px;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -18,18 +19,4 @@ input, text{
 }
 row,col{
     border: 1px solid black;
-}
-table{
-    border: 1px solid black;
-    border-spacing: 10px;
-    border-radius: 5px;
-}
-th,td{
-    padding-left: 10px;
-}
-tr:nth-child(even) {
-  background-color: #d3e6ed;
-}
-button{
-    width: 20%;
 }
