@@ -1,84 +1,126 @@
-<div class="container-fluid">
-    <div class="card">
-        <div class="d-grid gap-3">
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <label for="product_id">Product ID: </label>
-            <input type="number" id="input-ProductID" [(ngModel)]="txtproduct_id">
+     <div class="login-container d-flex justify-content-center align-items-center">
+      <div class="card login-card" style="width: 100%; max-width: 600px;">
+        <div class="card-body p-5">
+          <h2 class="text-muted text-center mb-4">Product Management</h2>
+             <label for="product_id">
+                <i class="bi bi-lock me-2"></i>Product ID:
+              </label>
+            <!-- Email Field -->
+            <div class="form-floating mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="product_id"
+                [(ngModel)]="txtproduct_id"
+                placeholder="Product ID"
+              >
+              <label for="product_id">
+                <i class="bi bi-lock me-2"></i>Product ID
+              </label>
+            </div>
+            <label for="product_name">
+                <i class="bi bi-lock me-2"></i>Product Name:
+              </label>
+            <!-- Password Field -->
+            <div class="form-floating mb-3 position-relative"> 
+              <input          
+                class="form-control"
+                type="text"
+                id="product_name"
+                [(ngModel)]="txtproduct_name"
+                placeholder="Product Name"
+              >
+                <label for="product_name">
+                    <i class="bi bi-lock me-2"></i>Product Name
+                </label>
+            </div>  
+        <!-- Product Quantity Field -->
+         <label for="product_quantity">
+                <i class="bi bi-lock me-2"></i>Product Quantity:
+              </label>
+        <div class="form-floating mb-3 position-relative">
+          <input
+            class="form-control"
+            type="number"
+            id="product_quantity"
+            [(ngModel)]="txtproduct_quantity"
+            placeholder="Product Quantity"
+          >
+          <label for="product_quantity">
+            <i class="bi bi-lock me-2"></i>Product Quantity
+          </label>
         </div>
-        <div class="col-md-4">
-            <label for="product_name">Product Name:</label>
-            <input type="text" id="input-ProductName" [(ngModel)]="txtproduct_name">
+        <!-- Product Price Field -->
+        <label for="product_price">
+          <i class="bi bi-lock me-2"></i>Product Price:
+        </label>
+        <div class="form-floating mb-3 position-relative">
+          <input
+            class="form-control"
+            type="text"
+            id="product_price"
+            [(ngModel)]="txtproduct_price"
+            placeholder="Product Price"
+          >
+          <label for="product_price">
+            <i class="bi bi-lock me-2"></i>Product Price
+          </label>
         </div>
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <label for="product_id">Product Quantity: </label>
-            <input type="number" step="1" min="1" id="input-ProductID" [(ngModel)]="txtproduct_quantity">
+        <!-- Product Image Field -->
+        <label for="product_image">
+          <i class="bi bi-lock me-2"></i>Product Image:
+        </label>
+        <div class="form-floating mb-3 position-relative">
+          <input
+            class="form-control"
+            type="text"
+            id="product_image"
+            [(ngModel)]="imgproductImg_url"
+            placeholder="Product Image"
+          >
+          <label for="product_image">
+            <i class="bi bi-lock me-2"></i>Product Image
+          </label>
         </div>
-        <div class="col-md-4">
-            <label for="product_name">Product Price: </label>
-            <input type="text" id="input-ProductPrice" [(ngModel)]="txtproduct_price">
+        <!-- Submit Button -->
+        <div class="text-center">   
+            <button class="btn btn-primary w-50 mb-3" *ngIf="isSubmit" (click)="Submit()">Submit</button>
+            <button class="btn btn-secondary w-50 mb-3" *ngIf="isUpdate" (click)="Update()">Edit</button>
         </div>
-        
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <label for="product_id">Product Image: </label>
-            <input type="text" id="input-ProductImg" [(ngModel)]="imgproductImg_url">
         </div>
-        <div class="col-md-4">
-
-        </div>
-    </div>
-    <!-- <div class="row">
-        <label for="product_img">Upload Image: </label>
-        
-    </div> -->
-    <div class="row justify-content-md-center">
-        <div class="col-md-12 text-center"> 
-            <button class="btn btn-primary" (click)="Submit()">Submit</button>
-        </div>      
-    </div>
-    </div>
-    </div>
+           </div>             
+</div>
+<hr>
+<div class="container-fluid d-flex flex-column">
+    <h2 class="text-center text-muted">Product List</h2>
+    <p class="text-center text-muted">Manage your products here</p>
   <br><br>
         <div>
-            <table class="table">
-                <thead class="table-primary">
-                <tr class="table-success">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="text-center">
+                <tr class="text-center">
                     <th>Product ID</th>
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Product Image</th>
                     <th>Action</th>
-                </tr> 
-                </thead>              
+                </tr>
+                </thead>
+                <tbody class="table-group-divider table-striped table-hover table-bordered">
                 <tr *ngFor="let prod of arrObj" cellsspacing="3px">
-                    <td>{{prod.product_id}}</td>
-                    <td>{{prod.product_name}}</td>
-                    <td>{{prod.product_price | currency:'INR' }}</td>
-                    <td>{{prod.product_quantity}}</td>
-                    <td><img src={{prod.productImg_url}} width="10%"></td>
-                    <td [width]="30">
+                    <td [width]="'5%'">{{prod.product_id}}</td>
+                    <td [width]="'20%'">{{prod.product_name}}</td>
+                    <td [width]="'10%'">{{prod.product_price | currency:'INR' }}</td>
+                    <td [width]="'5%'">{{prod.product_quantity}}</td>
+                    <td [width]="'30%'"><img src={{prod.productImg_url}} width="10%"></td>
+                    <td [width]="'20%'">
                         <button class="btn btn-success" (click)="Edit(prod.product_id)"  style="margin-right: 5px;">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" (click)="Delete(prod.product_id)">Delete</button>
                     </td>
-                </tr>            
+                </tr>  
+                </tbody>          
             </table>
          <hr>
-         <h1>Default Date format: {{exmDateFormat}}</h1>
-         <h1>Default Date format: {{exmDateFormat |date:'fullDate'}}</h1>
-         <h1>Default Date format: {{exmDateFormat |date:'shortDate'}}</h1>
-         <h1>Default Date format: {{exmDateFormat |date:'dd/MMM/yyyy'}}</h1>
-         <h1>Default Date format: {{exmDateFormat |date:'longDate'}}</h1>
-         <h1>Default Date format: {{exmDateFormat |date:'mediumDate'}}</h1>
-         <h1>Default Date format: {{exmDateFormat |date:'dd-MM-yyyy'}}</h1>
-         <h1>Default Date format: {{exmDateFormat }}</h1>
-         
-
-         
-
     </div>
 </div>

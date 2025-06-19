@@ -1,9 +1,9 @@
 .main-body{
-    width:90%;
+    width:98%;
+    margin-bottom: 60px;
+    margin-left: 1%;
 }
-.fixed-bottom{
-    width: 2%;
-}
+
 .button{
     margin-left: 10px;
     margin-right: 10px;

@@ -1,11 +1,11 @@
  .footer-custom {
       background-color: #8686ce;
       color: #fff;
-      padding: 40px 0;
-      position: fixed;
+      padding: 40px 0;    
       bottom: 0;
       left: 0;
       right: 0;
+      padding-top: 20px;
     }
     .footer-custom a {
       color: #050505;
