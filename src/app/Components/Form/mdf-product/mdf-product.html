@@ -1,0 +1,134 @@
+<div class="body">
+     <div class="login-container d-flex justify-content-center align-items-center">
+      <div class="card login-card" style="width: 100%; max-width: 400px;">
+        <div class="card-body p-5">
+          <h2 class="align-items-center">Product Registration</h2>
+          <p class="text-muted text-center mb-4">Please fill in the product details</p>
+
+          <form [formGroup]="ProductForm" (ngSubmit)="SubmitProduct()">
+            <label for="ProductName">
+                <i class="bi bi-box me-2"></i>Product Name
+              </label>
+            <!-- Product Name Field -->
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="ProductName"
+                formControlName="ProductName"
+                placeholder="Product Name"
+                autocomplete="off"
+              >
+              <label for="ProductName">
+                <i class="bi bi-box me-2"></i>Product Name
+              </label>             
+            </div>
+            <div *ngIf="ProductForm.get('ProductName')?.invalid && ProductForm.get('ProductName')?.touched" class="text-danger">
+              <span *ngIf="ProductForm.get('ProductName')?.errors?.['required']">Product Name is required.</span>
+              <span *ngIf="ProductForm.get('ProductName')?.errors?.['minlength']">Product Name must be at least 3 characters long.</span>
+              <span *ngIf="ProductForm.get('ProductName')?.errors?.['maxlength']">Product Name cannot be more than 50 characters long.</span>
+            </div>
+            <label for="ProductDescription">
+                <i class="bi bi-box me-2"></i>Product Description
+              </label>
+            <!-- Product Description Field -->
+            <div class="form-floating mb-3">
+              <textarea
+                class="form-control"
+                id="ProductDescription"
+                formControlName="ProductDescription"
+                placeholder="Product Description"
+                rows="3"
+              ></textarea>
+              <label for="ProductDescription">
+                <i class="bi bi-box me-2"></i>Product Description
+              </label>
+            </div>
+            <div *ngIf="ProductForm.get('ProductDescription')?.invalid && ProductForm.get('ProductDescription')?.touched" class="text-danger">
+              <span *ngIf="ProductForm.get('ProductDescription')?.errors?.['required']">Product Description is required.</span>
+              <span *ngIf="ProductForm.get('ProductDescription')?.errors?.['minlength']">Product Description must be at least 10 characters long.</span>
+              <span *ngIf="ProductForm.get('ProductDescription')?.errors?.['maxlength']">Product Description cannot be more than 200 characters long.</span>
+            </div>
+            <label for="ProductPrice">
+                <i class="bi bi-currency-dollar me-2"></i>Product Price
+              </label>
+            <div class="form-floating mb-3 position-relative">
+              <input          
+                class="form-control"
+                type="number"
+                id="ProductPrice"
+                formControlName="ProductPrice"
+                placeholder="Product Price"
+                autocomplete="off"
+              >
+            <label for="ProductPrice">
+                <i class="bi bi-lock me-2"></i>Product Price
+            </label>
+            </div>           
+                <div *ngIf="ProductForm.get('ProductPrice')?.invalid && ProductForm.get('ProductPrice')?.touched" class="text-danger">
+                  <span *ngIf="ProductForm.get('ProductPrice')?.errors?.['required']">Product Price is required.</span>
+                  <span *ngIf="ProductForm.get('ProductPrice')?.errors?.['min']">Product Price must be a positive number.</span>
+                </div> 
+
+                <div *ngIf="ProductForm.get('StockQuantity')?.invalid && ProductForm.get('StockQuantity')?.touched" class="text-danger">
+                  <span *ngIf="ProductForm.get('StockQuantity')?.errors?.['required']">Stock Quantity is required.</span>
+                  <span *ngIf="ProductForm.get('StockQuantity')?.errors?.['min']">Stock Quantity must be a positive number.</span>
+                </div>
+            <label for="StockQuantity">
+                <i class="bi bi-box-seam me-2"></i>Stock Quantity
+            </label>
+            <div class="form-floating mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="StockQuantity"
+                formControlName="StockQuantity"
+                placeholder="Stock Quantity"
+                autocomplete="off"
+              >
+              <label for="StockQuantity">
+                <i class="bi bi-box-seam me-2"></i>Stock Quantity
+              </label>
+            </div>
+            <div *ngIf="ProductForm.get('StockQuantity')?.invalid && ProductForm.get('StockQuantity')?.touched" class="text-danger">
+              <span *ngIf="ProductForm.get('StockQuantity')?.errors?.['required']">Stock Quantity is required.</span>
+              <span *ngIf="ProductForm.get('StockQuantity')?.errors?.['min']">Stock Quantity must be a positive number.</span>
+            </div>
+            <label for="ProductCategory">
+                <i class="bi bi-tags me-2"></i>Product Category
+              </label>  
+            <!-- Product Category Field -->
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="ProductCategory"
+                formControlName="ProductCategory"
+                aria-label="Product Category"
+              >
+                <option value="" disabled selected>Select a category</option>
+                <option *ngFor="let prod of arrayOfCategories" [value]="prod.category">{{ prod.category }}
+                    <ng-container *ngFor="let product of prod.products">
+                      <option [value]="product">{{ product }}</option>
+                    </ng-container>
+
+                </option>
+              </select>
+              <label for="ProductCategory">
+                <i class="bi bi-tags me-2"></i>Product Category
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100 mb-3" (click)="SubmitProduct()"> Submit </button>
+          </form>
+        </div>
+        
+        <div class="card-footer text-center py-3 bg-transparent border-0">
+          <small class="text-muted">
+            Don't have an account? 
+            <a href="#" class="text-decoration-none">Sign up here</a>
+          </small>
+        </div>
+      </div>
+    </div>
+</div>

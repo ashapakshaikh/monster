@@ -8,6 +8,7 @@ import { DirectiveTwo } from './Components/directive-two/directive-two';
 import { Assignments } from './Components/assignments/assignments';
 import { TDFRegister } from './Components/Form/tdf-register/tdf-register';
 import { MDFLogin } from './Components/Form/mdf-login/mdf-login';
+import { MdfProduct } from './Components/Form/mdf-product/mdf-product';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import { MDFLogin } from './Components/Form/mdf-login/mdf-login';
     DirectiveTwo,
     Assignments,
     TDFRegister,
-    MDFLogin
+    MDFLogin,
+    MdfProduct
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'

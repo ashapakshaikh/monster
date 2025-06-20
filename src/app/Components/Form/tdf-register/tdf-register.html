@@ -1,41 +1,74 @@
-<div class="container">
-    <form  #registerForm="ngForm" (ngSubmit)="submitform(registerForm)" class="registeration-form">
-        <div class="form-group">
-        <div class="card">
-            <div class="d-grid gap-3">
-            <div class="row">
-                <div class="col-md-3">
-                    <label>User Name:</label> 
-                     <input type="text" name="UserName" ngModel id="UserName">
-                </div>                           
-                <div class="col-md-3">
-                    <label>Email:</label> 
-                    <input type="email" name="EmailID" ngModel id="EmailID">
-                </div>                                         
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label>Mobile Number:</label>               
-                    <input type="text" name="MobileNumber" ngModel id="MobileNumber">
-                </div>
-                <div class="col-md-3">
-                    <label>Password:</label>               
-                    <input type="password" name="Password" ngModel id="Password">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
+<div class="login-container d-flex justify-content-center align-items-center">
+      <div class="card login-card" style="width: 100%; max-width: 600px;">
+            <h2 class="text-muted text-center mb-4">User Registration</h2>
+            <p class="text-muted text-center mb-4">Please fill in the form below to register.</p>
+            <form  #registerForm="ngForm" (ngSubmit)="submitform(registerForm)" class="registeration-form">
+                <div class="form-group">
+                    <div class="d-grid gap-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="product_id">
+                                    <i class="bi bi-lock me-2"></i>Product ID:
+                                </label>
+                                <input type="text" name="UserName" ngModel id="UserName" required #userName="ngModel"
+                                    minlength="6">
+                            </div>
+                            <!-- <h1>{{userName.invalid}} {{userName.touched}} {{userName.errors | json}}</h1>  -->
+                            <div class="error-message">
+                                <div *ngIf="userName.invalid && userName.touched">
+                                    <span class="text-danger" *ngIf="userName.errors?.['required']">User Name is required.</span>
+                                    <span class="text-danger" *ngIf="userName.errors?.['minlength']">User Name must be at least 6 characters long.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Email:</label> 
+                                <input type="email" name="EmailID" ngModel id="EmailID" required #email="ngModel"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            </div> 
+                            <div class="error-message">
+                                <div *ngIf="email.invalid && email.touched">
+                                    <span class="text-danger" *ngIf="email.errors?.['required']">Email is required.</span>                   
+                                    <span class="text-danger" *ngIf="email.errors?.['pattern']">Invalid email format,enter like example&#64;gmail.com</span>
+                                </div>
+                            </div>                                             
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Mobile Number:</label>               
+                                <input type="text" name="MobileNumber" ngModel id="MobileNumber" required #mobileNumber="ngModel"
+                                    pattern="^[7-9][0-9]{9}$">
+                            </div>
+                            <div class="error-message">
+                                <div *ngIf="mobileNumber.invalid && mobileNumber.touched">
+                                    <span class="text-danger" *ngIf="mobileNumber.errors?.['required']">Mobile Number is required.</span>                   
+                                    <span class="text-danger" *ngIf="mobileNumber.errors?.['pattern']">Mobile number should start with 7-9 and be 10 digits long.</span>
+                                </div>
+                             </div>
+                            <div class="col-md-3">
+                                <label>Password:</label>               
+                                <input type="password" name="Password" ngModel id="Password" required #password="ngModel" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
+                            </div>
+                            <div class="error-message">
+                                <div *ngIf="password.invalid && password.touched">
+                                    <span class="text-danger" *ngIf="password.errors?.['required']">Password is required.</span>                   
+                                    <span class="text-danger" *ngIf="password.errors?.['pattern']">Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h1>Invalid : {{ registerForm.invalid | json }}</h1>
+                                <h1>Valid : {{ registerForm.valid | json }}</h1>
+                            </div>
+                            <div class="col-md-2"> 
+                                <button class="btn btn-danger" [disabled]="registerForm.invalid" (click)="submitform(registerForm)">Register</button>
+                            </div>
+                            <div class="col-md-3">
 
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2"> 
-                    <button class="btn btn-danger" (click)="submitform(registerForm)">Register</button>
-                </div>
-               <div class="col-md-3">
-
-               </div>
-            </div>
-        </div>
-        </div>
-        </div>
-    </form>
+            </div>      
+        </form>
+    </div>   
 </div>

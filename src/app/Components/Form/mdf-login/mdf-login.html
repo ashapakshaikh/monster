@@ -23,6 +23,11 @@
                 <i class="bi bi-envelope me-2"></i>Email Address
               </label>             
             </div>
+            <div *ngIf="loginData.get('Email')?.invalid && loginData.get('Email')?.touched" class="text-danger">
+              <span *ngIf="loginData.get('Email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="loginData.get('Email')?.errors?.['minlength']">Email must be at least 5 characters long.</span>
+              <span *ngIf="loginData.get('Email')?.errors?.['pattern']">Invalid email pattern.</span>
+            </div>
             <label for="password">
                 <i class="bi bi-lock me-2"></i>Password
               </label>
@@ -39,8 +44,12 @@
             <label for="password">
                 <i class="bi bi-lock me-2"></i>Password
             </label>
-            </div>   
-              
+            </div>           
+                <div *ngIf="loginData.get('Password')?.invalid && loginData.get('Password')?.touched" class="text-danger">
+                  <span *ngIf="loginData.get('Password')?.errors?.['required']">Password is required.</span>
+                  <span *ngIf="loginData.get('Password')?.errors?.['minlength']">Password must be at least 8 characters long.</span>
+                  <span *ngIf="loginData.get('Password')?.errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one number.</span>
+                </div>         
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary w-100 mb-3" (click)="SubmitLogin()"> Sign In </button>      
           </form>

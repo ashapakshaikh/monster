@@ -1,9 +1,12 @@
+import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tdf-register',
-  imports: [FormsModule],
+  imports: [FormsModule,
+    JsonPipe,
+    CommonModule],
   templateUrl: './tdf-register.html',
   styleUrl: './tdf-register.css'
 })

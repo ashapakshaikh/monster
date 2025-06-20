@@ -76,12 +76,12 @@ Edit(prdId:number){
     this.isSubmit = false;
       this.isUpdate = true;
   //console.log(prdId);
-  let obj:Product = this.arrObj.find((item) => item.product_id == prdId) as Product;
-  this.txtproduct_id = obj.product_id;
-  this.txtproduct_name = obj.product_name;
-  this.txtproduct_quantity = obj.product_quantity;
-  this.txtproduct_price = obj.product_price;
-  this.imgproductImg_url = obj.productImg_url;
+  let objProd:Product = this.arrObj.find((item) => item.product_id == prdId) as Product;
+  this.txtproduct_id = objProd.product_id;
+  this.txtproduct_name = objProd.product_name;
+  this.txtproduct_quantity = objProd.product_quantity;
+  this.txtproduct_price = objProd.product_price;
+  this.imgproductImg_url = objProd.productImg_url;
 
 }
 Delete(prdId:number){
