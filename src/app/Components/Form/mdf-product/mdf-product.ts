@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl,FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl,FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-mdf-product',
-  imports: [ReactiveFormsModule ,CommonModule],
+  imports: [
+    ReactiveFormsModule ,
+    CommonModule, 
+    FormsModule
+  ],
   templateUrl: './mdf-product.html',
   styleUrl: './mdf-product.css'
 })
@@ -26,10 +30,19 @@ export class MdfProduct {
     }
   }
 
-  arrayOfCategories = [
-    { category: 'Electronics' },
-    { category: 'Clothing' },
-    { category: 'Home Appliances' },
-    { category: 'Books' }
+  arrayOfCategories:{ CategoryName:string}[] = [
+    { CategoryName: 'Electronics' },
+    { CategoryName: 'Clothing' },
+    { CategoryName: 'Home Appliances' },
+    { CategoryName: 'Books' },
+    { CategoryName: 'Toys' },
+    { CategoryName: 'Sports' },
+    { CategoryName: 'Beauty Products' }
   ];
+    ProductCategory: string = '';
+      onCategoryChange() {
+    //const selectedCategory = event.target.value;
+    //console.log('Selected Category:', selectedCategory);
+  }
+
 }

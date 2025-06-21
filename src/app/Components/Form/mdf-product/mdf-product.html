@@ -98,26 +98,26 @@
                 <i class="bi bi-tags me-2"></i>Product Category
               </label>  
             <!-- Product Category Field -->
-            <div class="form-floating mb-3">
-              <select
-                class="form-select"
-                id="ProductCategory"
-                formControlName="ProductCategory"
-                aria-label="Product Category"
-              >
-                <option value="" disabled selected>Select a category</option>
-                <option *ngFor="let prod of arrayOfCategories" [value]="prod.category">{{ prod.category }}
-                    <ng-container *ngFor="let product of prod.products">
-                      <option [value]="product">{{ product }}</option>
-                    </ng-container>
-
+            <div class="form-floating mb-3" style="margin-bottom: 20px;">
+              <select [(ngModel)]="ProductCategory" 
+                      class="form-select" id="ProductCategory" 
+                      formControlName="ProductCategory"
+                      (change)="onCategoryChange()"
+                      >
+              <option value="" selected>Select a category</option>
+                <option *ngFor="let ProdCategory of arrayOfCategories" [value]="ProdCategory.CategoryName">
+                  {{ ProdCategory.CategoryName }}
                 </option>
               </select>
-              <label for="ProductCategory">
+              <p>You selected Product Category: {{ ProductCategory }}</p>         
+              <label for="ProductCategory"> 
                 <i class="bi bi-tags me-2"></i>Product Category
               </label>
             </div>
-
+              <br>
+              <br>
+              <br>
+              <br>
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary w-100 mb-3" (click)="SubmitProduct()"> Submit </button>
           </form>

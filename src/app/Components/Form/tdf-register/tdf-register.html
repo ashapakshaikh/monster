@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label for="product_id">
-                                    <i class="bi bi-lock me-2"></i>Product ID:
+                                    <i class="bi bi-lock me-2"></i>User Name:
                                 </label>
                                 <input type="text" name="UserName" ngModel id="UserName" required #userName="ngModel"
                                     minlength="6">
@@ -23,12 +23,12 @@
                             <div class="col-md-3">
                                 <label>Email:</label> 
                                 <input type="email" name="EmailID" ngModel id="EmailID" required #email="ngModel"
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    >
                             </div> 
                             <div class="error-message">
                                 <div *ngIf="email.invalid && email.touched">
                                     <span class="text-danger" *ngIf="email.errors?.['required']">Email is required.</span>                   
-                                    <span class="text-danger" *ngIf="email.errors?.['pattern']">Invalid email format,enter like example&#64;gmail.com</span>
+                                    <!-- <span class="text-danger" *ngIf="email.errors?.['pattern']">Invalid email format,enter like example&#64;gmail.com</span> -->
                                 </div>
                             </div>                                             
                         </div>
@@ -46,12 +46,12 @@
                              </div>
                             <div class="col-md-3">
                                 <label>Password:</label>               
-                                <input type="password" name="Password" ngModel id="Password" required #password="ngModel" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
+                                <input type="password" name="Password" ngModel id="Password" required #password="ngModel">   
                             </div>
                             <div class="error-message">
                                 <div *ngIf="password.invalid && password.touched">
                                     <span class="text-danger" *ngIf="password.errors?.['required']">Password is required.</span>                   
-                                    <span class="text-danger" *ngIf="password.errors?.['pattern']">Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.</span>
+                                    <!-- <span class="text-danger" *ngIf="password.errors?.['pattern']">Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.</span> -->
                                 </div>
                             </div>
                         </div>

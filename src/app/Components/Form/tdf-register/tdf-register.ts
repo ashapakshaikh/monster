@@ -14,6 +14,7 @@ export class TDFRegister {
 submitform(data:any){
   console.log('Data is : ',data.value);
   console.log('User Name is: ',data.value.UserName);
-  
+  localStorage.setItem('userData', JSON.stringify(data.value));
+  alert('User Registered Successfully');
 }
 }

@@ -1,0 +1,17 @@
+<p>all-product works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>All Products</h1>
+      <p>Here you can view all the products available.</p>
+      <ul>
+        <li *ngFor="let item of product">
+          <h2>{{ item.product_name }}</h2>
+          <p>Price: {{ item.product_price }}</p>
+          <p>Quantity: {{ item.product_quantity }}</p>
+          <img [src]="item.productImg_url" alt="{{ item.product_name }}" />
+        </li>
+      </ul>
+    </div>
+  </div>

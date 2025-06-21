@@ -15,14 +15,7 @@ import { MdfProduct } from './Components/Form/mdf-product/mdf-product';
   imports: [
     RouterOutlet,
     Navbar,
-    Footer,
-    Directives,
-    Binding,
-    DirectiveTwo,
-    Assignments,
-    TDFRegister,
-    MDFLogin,
-    MdfProduct
+    Footer,   
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'

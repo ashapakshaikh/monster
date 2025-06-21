@@ -47,8 +47,8 @@
             </div>           
                 <div *ngIf="loginData.get('Password')?.invalid && loginData.get('Password')?.touched" class="text-danger">
                   <span *ngIf="loginData.get('Password')?.errors?.['required']">Password is required.</span>
-                  <span *ngIf="loginData.get('Password')?.errors?.['minlength']">Password must be at least 8 characters long.</span>
-                  <span *ngIf="loginData.get('Password')?.errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one number.</span>
+                  <!-- <span *ngIf="loginData.get('Password')?.errors?.['minlength']">Password must be at least 8 characters long.</span>
+                  <span *ngIf="loginData.get('Password')?.errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one number.</span> -->
                 </div>         
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary w-100 mb-3" (click)="SubmitLogin()"> Sign In </button>      
@@ -58,7 +58,7 @@
         <div class="card-footer text-center py-3 bg-transparent border-0">
           <small class="text-muted">
             Don't have an account? 
-            <a href="#" class="text-decoration-none">Sign up here</a>
+            <a routerLink="/Register" class="text-decoration-none">Sign up here</a>
           </small>
         </div>
       </div>
