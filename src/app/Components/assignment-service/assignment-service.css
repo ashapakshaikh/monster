@@ -1,0 +1,15 @@
+.form-container{
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+.card.form-card {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #dde7ea;
+    transition: box-shadow 0.3s ease;
+    max-width: 600px;
+    margin: auto;
+    background: linear-gradient(to left, rgb(200, 189, 217) 50%, rgb(192, 192, 202) 50%) right;
+    background-size: 200% 100%;
+}

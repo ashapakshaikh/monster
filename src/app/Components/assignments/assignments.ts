@@ -12,7 +12,6 @@ import { Product } from '../interfaceAndClasses/Product';
 })
 export class Assignments {
 
-
   exmDateFormat = new Date();
 
 txtproduct_id:number=0;
@@ -111,9 +110,6 @@ Update(){
   }else{     
     let index = this.arrObj.findIndex((item) => item.product_id == this.txtproduct_id);
     if (index > -1) {
-      //this.isSubmit = false;
-      //this.isUpdate = true;
-      // Update the product details
       this.arrObj[index] = {
         product_id: this.txtproduct_id,
         product_name: this.txtproduct_name,

@@ -1,0 +1,116 @@
+<div class="form-container d-flex justify-content-center align-items-center">
+    <div class="card form-card" style="width: 100%; max-width: 600px;">
+        <div class="card-body p-5">
+            <h3 class="text-muted text-center mb-4">Product Management using Services</h3>
+            <form  [formGroup]="ProductData" (ngSubmit)="SubmitProduct()">  
+                <label for="product_id">
+                    <i class="bi bi-lock me-2"></i><b>Product ID:</b>
+                </label>
+                <div class="form-floating mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="product_id"
+                        formControlName="product_id"
+                        placeholder="Product ID"
+                    >
+                    <label for="product_id">Product ID</label>
+                </div>
+                <div *ngIf="ProductData.get('product_id')?.invalid && ProductData.get('product_id')?.touched" class="text-danger">
+                    <span *ngIf="ProductData.get('product_id')?.errors?.['required']">Product ID is required.</span>
+                    <span *ngIf="ProductData.get('product_id')?.errors?.['min']">Product ID must be a positive number.</span>
+                </div>
+                <label for="product_name">
+                    <i class="bi bi-lock me-2"></i><b>Product Name:</b>
+                </label>    
+                <div class="form-floating mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="product_name"
+                        formControlName="product_name"
+                        placeholder="Product Name"
+                    >
+                    <label for="product_name">Product Name</label>  
+                </div>
+                <div *ngIf="ProductData.get('product_name')?.invalid && ProductData.get('product_name')?.touched" class="text-danger">
+                    <span *ngIf="ProductData.get('product_name')?.errors?.['required']">Product Name is required.</span>
+                    <span *ngIf="ProductData.get('product_name')?.errors?.['minlength']">Product Name must be at least 3 characters long.</span>
+                </div> 
+                <label for="product_price">
+                    <i class="bi bi-lock me-2"></i><b>Product Price:</b>
+                </label>        
+                <div class="form-floating mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="product_price"
+                        formControlName="product_price"
+                        placeholder="Product Price"
+                    >
+                    <label for="product_price">Product Price</label>
+                </div>
+                <div *ngIf="ProductData.get('product_price')?.invalid && ProductData.get('product_price')?.touched" class="text-danger">
+                    <span *ngIf="ProductData.get('product_price')?.errors?.['required']">Product Price is required.</span>
+                    <span *ngIf="ProductData.get('product_price')?.errors?.['min']">Product Price must be a positive number.</span>
+                </div>  
+                <label for="product_category">
+                    <i class="bi bi-lock me-2"></i><b>Product Category:</b>
+                </label>
+                <div class="form-floating mb-3">
+                    <select [(ngModel)]="selectedCountry" 
+                            class="form-select"
+                            id="product_category"
+                            formControlName="product_category"
+                            placeholder="Product Category">
+                        <option *ngFor="let country of countries" [ngValue]="country.id">
+                            {{ country.id }} -
+                            {{ country.name }}
+                        </option>
+                    </select>
+                    <label for="product_category">Product Category</label>
+                </div>             
+                <label for="product_quantity">
+                    <i class="bi bi-lock me-2"></i><b>Product quantity:</b>
+                </label>
+                <div class="form-floating mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="product_quantity"
+                        formControlName="product_quantity"
+                        placeholder="Product quantity"
+                    >
+                    <label for="product_quantity">Product quantity</label>  
+                </div>
+                    <label for="product_description">
+                        <i class="bi bi-lock me-2"></i><b>Product Description:</b>
+                    </label>
+                <div class="form-floating mb-3">
+                    <input type="text"
+                        class="form-control"
+                        id="product_description"
+                        formControlName="product_description"
+                        placeholder="Product Description"
+                    >
+                    <label for="product_description">Product Description</label>
+                </div>
+                    <label for="product_image">
+                        <i class="bi bi-lock me-2"></i><b>Product Image:</b>
+                    </label>
+                <div class="form-floating mb-3">
+                    <input type="text"
+                            class="form-control"
+                            id="product_image"
+                            formControlName="product_image"
+                            placeholder="Product Image URL"
+                        >
+                    <label for="product_image">Product Image URL</label>
+                </div>
+                <div class="form-floating mb-3 text-center">
+                    <button class="btn btn-danger" (click)="SubmitProduct()">Submit</button>
+                </div>          
+            </form>
+        </div>
+    </div>
+</div>

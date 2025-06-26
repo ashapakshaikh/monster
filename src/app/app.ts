@@ -15,7 +15,7 @@ import { MdfProduct } from './Components/Form/mdf-product/mdf-product';
   imports: [
     RouterOutlet,
     Navbar,
-    Footer,   
+    Footer
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -23,3 +23,4 @@ import { MdfProduct } from './Components/Form/mdf-product/mdf-product';
 export class App {
   protected title = 'monster';
 }
+  
